@@ -1,0 +1,323 @@
+@import "custom";
+@import "variables";
+@import "mixins";
+@import "media-query";
+header {
+  .row {
+    gap: 42px;
+  }
+  .nav-container {
+    padding: 25px 20px;
+
+    @extend %flex-between;
+    .nav-menu {
+      .nav-list {
+        list-style: none;
+        gap: 24px;
+        .list-item {
+          a {
+            display: inline-block;
+            color: black;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: $font-montserrat;
+            position: relative;
+            &:hover {
+              color: $green-font;
+            }
+
+            &:hover::after {
+              content: "";
+              position: absolute;
+              bottom: -23px;
+              border-bottom: 2px solid;
+              border-color: green;
+              width: 100%;
+              display: block;
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+    }
+    .nav-icons {
+      gap: 30px;
+
+      .icon-item {
+        display: inline-block;
+        position: relative;
+        &:hover::before {
+          content: "";
+          position: absolute;
+          bottom: -20px;
+          border-bottom: 2px solid;
+          border-color: green;
+          width: 100%;
+          display: block;
+          margin: 0 auto;
+        }
+        .item-count {
+          width: 20px;
+          height: 20px;
+          background-color: #e3e3e3;
+          border-radius: 50%;
+          text-align: center;
+          @include flex($align: center, $justify: center);
+          position: absolute;
+          top: -13px;
+          right: -11px;
+          font-size: 12px;
+          font-weight: 700;
+        }
+        &:last-child {
+          color: white;
+        }
+      }
+    }
+  }
+  .header-right-icons {
+    .item-icon {
+      @include flex($align: center, $justify: center);
+      border-left: 1px solid #efefef;
+      padding: 25px 20px;
+    }
+  }
+}
+//start hero
+#hero-img {
+  background-image: url("/assets/images/header.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  margin-top: -7px;
+  height: 650px;
+  position: relative;
+  .hero-circle {
+    position: absolute;
+    bottom: 3%;
+    left: 9.6%;
+    width: 60px;
+    height: 60px;
+    background: $green-gradient;
+    border-radius: 50%;
+  }
+  .circle-text {
+    position: absolute;
+    bottom: 8%;
+    left: 11.2%;
+    p {
+      span {
+        background: linear-gradient(270deg, #8ee901 0%, #4f9c2c 99.06%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      font-family: $font-montserrat;
+      width: fit-content;
+      padding: 0 20px;
+      height: 61px;
+      background-color: $grey-color;
+      box-shadow: $text-shadow;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 61px;
+    }
+  }
+}
+// end hero
+// start featured
+
+#featured {
+  background-color: $featured-background;
+  padding: 49px 0px;
+
+  .featured-container {
+    gap: 19px;
+    @include flex($align: center, $justify: center);
+    .featured-text {
+      p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+//end featured
+//start products
+#products {
+  margin-top: 56px;
+  .row {
+    position: relative;
+    .arrow {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      box-shadow: $text-shadow;
+      background-color: $grey-color;
+      @include flex($align: center, $justify: center);
+      z-index: 1;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .arrow-left {
+      top: 110px;
+      left: -1.5%;
+    }
+    .arrow-right {
+      top: 110px;
+      right: -1.5%;
+    }
+  }
+  .head-text {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 27px;
+    h2 {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 20px;
+      font-family: $font-montserrat;
+    }
+  }
+
+  .product {
+    border: 1px solid $grey-product-border;
+    .product-head {
+      padding: 26px 75px;
+      position: relative;
+      .product-name {
+        text-align: center;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 26px;
+        font-family: $font-montserrat;
+      }
+      .product-head-icons {
+        position: absolute;
+        top: 21px;
+        right: 24px;
+        @include flex($align: center, $justify: center);
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+    .product-body {
+      .price-box {
+        width: 95px;
+        border: 1px solid $grey-product-border;
+        line-height: 20px;
+        font-family: $font-montserrat;
+        text-align: center;
+        padding: 17px 9px 13px 9px;
+        font-size: 14px;
+        p {
+          font-weight: 700;
+        }
+        span {
+          color: #75758a;
+          font-weight: 400;
+        }
+      }
+    }
+    .product-footer {
+      padding: 20px 25px;
+      gap: 20px;
+      .btn {
+        border-radius: 100px;
+        border: none;
+        padding: 12px;
+        width: 140px;
+        background-color: $grey-color;
+        box-shadow: $text-shadow;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        font-family: $font-montserrat;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .btn-green {
+        @include flex($align: center, $justify: center);
+        gap: 9px;
+        background: $green-gradient-button;
+        color: white;
+      }
+    }
+  }
+}
+//end products
+//start camera-desc
+#camera-desc {
+  margin-top: 93px;
+  .desc-head {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    h1 {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 20px;
+      font-family: $font-montserrat;
+    }
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 26px;
+      margin-top: 24px;
+      font-family: $font-montserrat;
+      color: $text-color-blackgrey;
+      strong {
+        color: black;
+      }
+    }
+    .search-btn {
+      @include flex($align: center, $justify: space-between);
+      margin-top: 17px;
+      button {
+        border: none;
+        background: $green-gradient-button;
+        color: white;
+        padding: 17px 56px;
+        border-radius: 100px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+        font-family: $font-montserrat;
+      }
+      .input-area {
+        border-radius: 100px;
+        box-shadow: $text-shadow;
+        padding: 5px;
+        position: relative;
+        .search-icon {
+          position: absolute;
+          top: 15px;
+          right: 8.5%;
+        }
+        .close-icon {
+          position: absolute;
+          top: 15px;
+          right: -13.5%;
+        }
+        input {
+          border-radius: 100px;
+          width: 250px;
+          background-color: $featured-background;
+          box-shadow: $input-shadow;
+          border: none;
+          height: 40px;
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
+  .desc-body {
+    margin-top: 80px;
+  }
+}
+//end camera-desc
