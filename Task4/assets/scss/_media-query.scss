@@ -1,4 +1,13 @@
 @media screen and (min-width: 993px) {
+  nav {
+    .mobile-icon {
+      display: none;
+    }
+    .mobile-menu {
+      display: none !important;
+    }
+  }
+
   .container {
     width: 76%;
     padding: 0 12px;
@@ -13,38 +22,105 @@
   #products {
     .row {
       @include flex($align: center, $justify: space-between);
+      .product-head {
+        .product-image {
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .product-body {
+        .price-box {
+          width: 25% !important;
+          overflow: hidden;
+        }
+      }
     }
   }
   #camera-desc {
     .desc-body {
       .row {
-        display: grid;
-        grid-auto-columns: 30px;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1.04fr 1fr;
-        grid-template-areas:
-          "Img1 Img2 Img3"
-          "Img4 Img4 Img5";
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        .image-container {
+          img {
+            width: 100%;
+          }
+        }
       }
-      .Img1 {
-        grid-area: Img1;
-      }
-      .Img2 {
-        grid-area: Img2;
-      }
-      .Img3 {
-        grid-area: Img3;
-      }
-      .Img4 {
-        grid-area: Img4;
-      }
-      .Img5 {
-        grid-area: Img5;
-      }
+    }
+  }
+  #company-location {
+    @include flex($align: center, $justify: center);
+    position: relative;
+    .container {
+      position: absolute;
+      top: 96px;
+    }
+    .company-location-body {
+      @include flex($align: center, $justify: space-around);
     }
   }
 }
 @media screen and (max-width: 992px) {
+  nav {
+    .row {
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      .nav-container {
+        .nav-menu,
+        .nav-icons {
+          display: none;
+        }
+      }
+      .col-2 {
+        display: none;
+      }
+      .mobile-icon {
+        padding-right: 10px;
+        i {
+          font-size: 20px;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .mobile-menu {
+        .menu-items {
+          text-align: center;
+          position: absolute;
+          transition: 0.5s;
+          animation-name: menu-animation;
+          animation-duration: 3s;
+          top: -10px;
+          z-index: 1;
+          background-color: white;
+          width: 100%;
+          .nav-list {
+            list-style: none;
+            .list-item {
+              margin-top: 10px;
+              a {
+                text-decoration: none;
+                color: black;
+                font-weight: 700;
+                font-size: 16px;
+                font-family: $font-montserrat;
+                transition: 0.3s;
+              }
+              a:hover {
+                color: $green-font;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   #featured {
     .row {
       .featured-container {
@@ -69,12 +145,69 @@
     }
   }
   #camera-desc {
+    .desc-head {
+      .search-btn {
+        flex-direction: column !important;
+        gap: 30px;
+      }
+    }
     .desc-body {
       .row {
         @include flex($align: center, $justify: center);
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
+        .image-container {
+          width: 80%;
+          margin: 0 auto;
+          img {
+            width: 100%;
+          }
+        }
       }
+    }
+  }
+  #guarantee {
+    .guarantee-body {
+      flex-direction: column;
+      .row {
+        gap: 30px;
+      }
+    }
+  }
+  #company-news {
+    .company-news-body {
+      width: 60%;
+      margin: 0 auto;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+  #company-location {
+    img {
+      display: none;
+    }
+    .company-location-body {
+      margin: 0 auto;
+      width: 80%;
+      text-align: center;
+      .location-box {
+        .icon-text {
+          justify-content: center;
+        }
+        margin-top: 30px;
+        background: $grey-product-border !important;
+      }
+    }
+  }
+  #footer-head {
+    display: none;
+  }
+  #footer-bottom {
+    background-color: $grey-product-border;
+    .row {
+      flex-direction: column;
+      gap: 30px;
+      align-items: center !important;
     }
   }
 }
