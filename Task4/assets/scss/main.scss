@@ -10,6 +10,12 @@ header {
     padding: 25px 20px;
 
     @include flex($align: center, $justify: space-between);
+    .nav-logo {
+      align-self: flex-end;
+      .mobile-version {
+        display: none;
+      }
+    }
     .nav-menu {
       .nav-list {
         list-style: none;
