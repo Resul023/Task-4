@@ -133,7 +133,7 @@
 @media only screen and (min-width: 993px) {
   /* For desktop: */
   .col-bx-4 {
-    width: 28%;
+    width: 30%;
   }
   .col-pc-3 {
     width: 31%;
@@ -842,16 +842,31 @@ header .header-right-icons .item-icon {
   font-family: "Ubuntu", sans-serif;
 }
 
-#products .product {
+#products .product-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  overflow: hidden;
+  gap: 55px;
+}
+
+#products .product-container .product-box .product {
   border: 1px solid #efefef;
 }
 
-#products .product .product-head {
+#products .product-container .product-box .product .product-head {
   padding: 26px 75px;
   position: relative;
 }
 
-#products .product .product-head .product-name {
+#products .product-container .product-box .product .product-head .product-name {
   text-align: center;
   font-weight: 700;
   font-size: 16px;
@@ -859,7 +874,7 @@ header .header-right-icons .item-icon {
   font-family: "Ubuntu", sans-serif;
 }
 
-#products .product .product-head .product-head-icons {
+#products .product-container .product-box .product .product-head .product-head-icons {
   position: absolute;
   top: 21px;
   right: 24px;
@@ -879,7 +894,7 @@ header .header-right-icons .item-icon {
   gap: 15px;
 }
 
-#products .product .product-body .price-box {
+#products .product-container .product-box .product .product-body .price-box {
   width: 95px;
   border: 1px solid #efefef;
   line-height: 20px;
@@ -889,21 +904,21 @@ header .header-right-icons .item-icon {
   font-size: 14px;
 }
 
-#products .product .product-body .price-box p {
+#products .product-container .product-box .product .product-body .price-box p {
   font-weight: 700;
 }
 
-#products .product .product-body .price-box span {
+#products .product-container .product-box .product .product-body .price-box span {
   color: #75758a;
   font-weight: 400;
 }
 
-#products .product .product-footer {
+#products .product-container .product-box .product .product-footer {
   padding: 20px 25px;
   gap: 20px;
 }
 
-#products .product .product-footer .btn {
+#products .product-container .product-box .product .product-footer .btn {
   border-radius: 100px;
   border: none;
   padding: 12px;
@@ -918,11 +933,11 @@ header .header-right-icons .item-icon {
   font-family: "Ubuntu", sans-serif;
 }
 
-#products .product .product-footer .btn:hover {
+#products .product-container .product-box .product .product-footer .btn:hover {
   cursor: pointer;
 }
 
-#products .product .product-footer .btn-green {
+#products .product-container .product-box .product .product-footer .btn-green {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
